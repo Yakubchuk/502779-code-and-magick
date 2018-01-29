@@ -22,5 +22,14 @@ window.renderStatistics = function(ctx, names, times) {
   ctx.fillText('Список результатов:', 210, 45);
   //  ------------ отрисовка графика
   ctx.fillText('Вы', 150, 270);
-  ctx.fillRect(150, 250, 30, -180);
+  ctx.fillRect(150, 250, 40, -180);
+
+  ctx.fillText('Маша', 200, 270);
+  ctx.fillRect(200, 250, 40, -180);
+
+  ctx.fillText('Кекс', 250, 270);
+  ctx.fillRect(250, 250, 40, -180);
+
+  ctx.fillText('Паша', 300, 270);
+  ctx.fillRect(300, 250, 40, -180);
 };
