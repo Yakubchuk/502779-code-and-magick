@@ -1,3 +1,5 @@
+'use strict';
+
 var MY_CLOUD_WIDTH = 420;
 var MY_CLOUD_HEIGHT = 270;
 var MY_CLOUD_X = 100;
