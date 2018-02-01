@@ -21,29 +21,6 @@ for( var i = 0; i < 4; i++){
       eyesColor: eyesColors[getRandomNum(eyesColors.length - 1, 1)]
     }
 }
-// console.log(mag);
-// var wizards = [
-//   {
-//     name: wizardNames[getRandomNum(wizardNames.length - 1, 1)] + ' ' + wizardSurName[getRandomNum(wizardSurName.length - 1, 1)],
-//     coatColor: coatColors[getRandomNum(coatColors.length - 1, 1)],
-//     eyesColor: eyesColors[getRandomNum(eyesColors.length - 1, 1)]
-//   },
-//   {
-//     name: wizardNames[getRandomNum(wizardNames.length - 1, 1)] + ' ' + wizardSurName[getRandomNum(wizardSurName.length - 1, 1)],
-//     coatColor: coatColors[getRandomNum(coatColors.length - 1, 1)],
-//     eyesColor: eyesColors[getRandomNum(eyesColors.length - 1, 1)]
-//   },
-//   {
-//     name: wizardNames[getRandomNum(wizardNames.length - 1, 1)] + ' ' + wizardSurName[getRandomNum(wizardSurName.length - 1, 1)],
-//     coatColor: coatColors[getRandomNum(coatColors.length - 1, 1)],
-//     eyesColor: eyesColors[getRandomNum(eyesColors.length - 1, 1)]
-//   },
-//   {
-//     name: wizardNames[getRandomNum(wizardNames.length - 1, 1)] + ' ' + wizardSurName[getRandomNum(wizardSurName.length - 1, 1)],
-//     coatColor: coatColors[getRandomNum(coatColors.length - 1, 1)],
-//     eyesColor: eyesColors[getRandomNum(eyesColors.length - 1, 1)]
-//   },
-// ];
 console.log(wizards);
 for (var i = 0; i < 4; i++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
