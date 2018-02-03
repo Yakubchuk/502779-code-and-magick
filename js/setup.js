@@ -9,23 +9,29 @@ var WIZARD_NAMES = ['Иван', 'Хуан', 'Себастьян', 'Мария', 
 var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг', 'Дензель'];
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var EYES_COLORS = ['red', 'blue', 'yellow', 'green'];
+
 //---функция вычисления случайных значений
-function getRandomNum(min, max) {
-  return Math.round(Math.random() * (max - min) + min);
+
+function getRandomNum(max, min) {
+  return Math.floor(Math.random() * (max + 1 - min));
 }
 
-var wizards = [];
 //---создаем массив объектов со случайными значениями
+
+var wizards = [];
 for (var i = 0; i < 4; i++) {
   wizards[i] =
     {
-      name: WIZARD_NAMES[getRandomNum(WIZARD_NAMES.length - 1, 1)] + ' ' + WIZARD_SURNAMES[getRandomNum(WIZARD_SURNAMES.length - 1, 1)],
-      coatColor: COAT_COLORS[getRandomNum(COAT_COLORS.length - 1, 1)],
-      eyesColor: EYES_COLORS[getRandomNum(EYES_COLORS.length - 1, 1)]
+      name: WIZARD_NAMES[getRandomNum(WIZARD_NAMES.length, 1)] + ' ' + WIZARD_SURNAMES[getRandomNum(WIZARD_SURNAMES.length, 1)],
+      coatColor: COAT_COLORS[getRandomNum(COAT_COLORS.length, 1)],
+      eyesColor: EYES_COLORS[getRandomNum(EYES_COLORS.length, 1)]
     };
 }
 console.log(wizards);
-var renderWizard = function (wizard) {
+
+//---Заполняем карточки магов
+
+var renderWizard = function () {
   var wizardElement = similarWizardTemplate.cloneNode(true);
   wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
