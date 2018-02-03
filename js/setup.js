@@ -27,7 +27,6 @@ for (var i = 0; i < 4; i++) {
       eyesColor: EYES_COLORS[getRandomNum(EYES_COLORS.length, 1)]
     };
 }
-console.log(wizards);
 
 //---Заполняем карточки магов
 
