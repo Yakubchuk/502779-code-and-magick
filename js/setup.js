@@ -10,13 +10,13 @@ var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', '�
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var EYES_COLORS = ['red', 'blue', 'yellow', 'green'];
 
-//---функция вычисления случайных значений
+//  ---функция вычисления случайных значений
 
 function getRandomNum(max, min) {
   return Math.floor(Math.random() * (max + 1 - min));
 }
 
-//---создаем массив объектов со случайными значениями
+//  ---создаем массив объектов со случайными значениями
 
 var wizards = [];
 for (var i = 0; i < 4; i++) {
@@ -28,18 +28,25 @@ for (var i = 0; i < 4; i++) {
     };
 }
 
-//---Заполняем карточки магов
+//  ---Заполняем карточки магов
 
-var renderWizard = function () {
+var renderWizard = function (item) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
-  wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
-  wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
+  wizardElement.querySelector('.setup-similar-label').textContent = item.name;
+  wizardElement.querySelector('.wizard-coat').style.fill = item.coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = item.eyesColor;
   return wizardElement;
 };
+
+var renderAll = function (items) {
+  for (var i = 0; i < items.length; i++) {
+    fragment.appendChild(renderWizard(items[i]));
+  }
+};
+
 var fragment = document.createDocumentFragment();
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
-}
+
+renderAll(wizards);
+
 similarListElement.appendChild(fragment);
 document.querySelector('.setup').querySelector('.setup-similar').classList.remove('hidden');
