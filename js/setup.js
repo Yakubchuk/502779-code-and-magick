@@ -56,7 +56,11 @@ document.querySelector('.setup').querySelector('.setup-similar').classList.remov
 
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open-icon');
+var setupClose = document.querySelector('.setup-close');
 
 setupOpen.addEventListener('click', function () {
   setup.classList.remove('hidden');
+});
+setupClose.addEventListener('click', function () {
+  setup.classList.add('hidden');
 });
