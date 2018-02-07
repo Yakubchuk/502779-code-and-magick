@@ -1,5 +1,5 @@
 'use strict';
-document.querySelector('.setup').classList.remove('hidden');
+// document.querySelector('.setup').classList.remove('hidden');
 document.querySelector('.setup-similar').classList.remove('hidden');
 
 var similarListElement = document.querySelector('.setup-similar-list');
@@ -9,6 +9,7 @@ var WIZARD_NAMES = ['Иван', 'Хуан', 'Себастьян', 'Мария', 
 var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг', 'Дензель'];
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var EYES_COLORS = ['red', 'blue', 'yellow', 'green'];
+
 
 //  ---функция вычисления случайных значений
 
@@ -50,3 +51,12 @@ renderAll(wizards);
 
 similarListElement.appendChild(fragment);
 document.querySelector('.setup').querySelector('.setup-similar').classList.remove('hidden');
+
+// ---module4-task1
+
+var setup = document.querySelector('.setup');
+var setupOpen = document.querySelector('.setup-open-icon');
+
+setupOpen.addEventListener('click', function () {
+  setup.classList.remove('hidden');
+});
