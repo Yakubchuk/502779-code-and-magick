@@ -57,20 +57,27 @@ document.querySelector('.setup').querySelector('.setup-similar').classList.remov
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open-icon');
 var setupClose = document.querySelector('.setup-close');
+// --- Открытие окна
+var openSettings = function () {
+  setup.classList.remove('hidden');
+  document.addEventListener('keydown', function (evt) {
+    if (evt.keyCode === 27){closeSettings();}
+  });
+};
+// --- Закрытие окна
+var closeSettings = function () {
+  setup.classList.add('hidden');
+};
 
 setupOpen.addEventListener('click', function () {
-  setup.classList.remove('hidden');
-
-  document.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === 27){setup.classList.add('hidden')}
-  });
+  openSettings();
 });
 setupOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13){setup.classList.remove('hidden')}
+  if (evt.keyCode === 13){openSettings();}
 });
 setupClose.addEventListener('click', function () {
-  setup.classList.add('hidden');
+  closeSettings();
 });
 setupClose.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13){setup.classList.add('hidden')}
+  if (evt.keyCode === 13){closeSettings();}
 });
