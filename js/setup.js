@@ -95,3 +95,22 @@ setupClose.addEventListener('click', function () {
 setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE){closeSettings();}
 });
+
+// --- WIZARD CLOTHES
+
+var WIZARD_COAT = document.querySelector('.wizard-coat');
+var WIZARD_EYES = document.querySelector('.wizard-eyes');
+var BALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var WIZARD_WEAPON = document.querySelector('.setup-fireball-wrap');
+
+var colorChange = document.querySelector('.setup-wizard');
+// var eyesChange = document.querySelector('.setup-wizard');
+
+
+colorChange.addEventListener('click', function () {
+  WIZARD_COAT.style.fill = COAT_COLORS[getRandomNum(COAT_COLORS.length, 1)];
+  WIZARD_EYES.style.fill = EYES_COLORS[getRandomNum(EYES_COLORS.length, 1)];
+});
+WIZARD_WEAPON.addEventListener('click', function () {
+  WIZARD_WEAPON.style.background = BALL_COLOR[getRandomNum(BALL_COLOR.length, 1)];
+});
