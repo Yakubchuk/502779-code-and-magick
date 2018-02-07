@@ -54,30 +54,44 @@ document.querySelector('.setup').querySelector('.setup-similar').classList.remov
 
 // ---module4-task1
 
+var ESC_KEYCODE = 27;
+var ENTER_KEYCODE = 13;
+
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open-icon');
 var setupClose = document.querySelector('.setup-close');
+var submit = document.querySelector('.setup-submit');
+
 // --- Открытие окна
 var openSettings = function () {
   setup.classList.remove('hidden');
-  document.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === 27){closeSettings();}
-  });
+  document.addEventListener('keydown', onPopupEscPress);
 };
+
 // --- Закрытие окна
 var closeSettings = function () {
   setup.classList.add('hidden');
+  document.removeEventListener('keydown', onPopupEscPress);
 };
+
+// --- удаление обработчика
+var onPopupEscPress = function(evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
+    closeSettings();
+  }
+};
+
+// --- описание функций
 
 setupOpen.addEventListener('click', function () {
   openSettings();
 });
 setupOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13){openSettings();}
+  if (evt.keyCode === ENTER_KEYCODE){openSettings();}
 });
 setupClose.addEventListener('click', function () {
   closeSettings();
 });
 setupClose.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13){closeSettings();}
+  if (evt.keyCode === ENTER_KEYCODE){closeSettings();}
 });
