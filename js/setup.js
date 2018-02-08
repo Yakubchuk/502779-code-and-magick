@@ -60,7 +60,6 @@ var ENTER_KEYCODE = 13;
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open-icon');
 var setupClose = document.querySelector('.setup-close');
-var submit = document.querySelector('.setup-submit');
 
 // --- Открытие окна
 var openSettings = function () {
@@ -75,7 +74,7 @@ var closeSettings = function () {
 };
 
 // --- удаление обработчика
-var onPopupEscPress = function(evt) {
+var onPopupEscPress = function (evt) {
   if (evt.keyCode === ESC_KEYCODE) {
     closeSettings();
   }
@@ -102,15 +101,29 @@ var WIZARD_COAT = document.querySelector('.wizard-coat');
 var WIZARD_EYES = document.querySelector('.wizard-eyes');
 var BALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 var WIZARD_WEAPON = document.querySelector('.setup-fireball-wrap');
+var NAME_FILL = document.querySelector('.setup-user-name');
+var SUBBMIT = document.querySelector('.setup-submit');
 
-var colorChange = document.querySelector('.setup-wizard');
-// var eyesChange = document.querySelector('.setup-wizard');
+var changeColor = function (el, obj) {
+  el.style.fill = obj[getRandomNum(obj.length, 1)];
+};
+var changeWeapon = function (el, obj) {
+  el.style.background = obj[getRandomNum(obj.length, 1)];
+};
 
-
-colorChange.addEventListener('click', function () {
-  WIZARD_COAT.style.fill = COAT_COLORS[getRandomNum(COAT_COLORS.length, 1)];
-  WIZARD_EYES.style.fill = EYES_COLORS[getRandomNum(EYES_COLORS.length, 1)];
+WIZARD_EYES.addEventListener('click', function () {
+  changeColor(WIZARD_EYES, EYES_COLORS);
+});
+WIZARD_COAT.addEventListener('click', function () {
+  changeColor(WIZARD_COAT, COAT_COLORS);
 });
 WIZARD_WEAPON.addEventListener('click', function () {
-  WIZARD_WEAPON.style.background = BALL_COLOR[getRandomNum(BALL_COLOR.length, 1)];
+  changeWeapon(WIZARD_WEAPON, BALL_COLOR);
+});
+
+NAME_FILL.addEventListener('keydown', function (evt) {
+  evt.stopPropagation();
+});
+SUBBMIT.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE){evt.preventDefault()}
 });
