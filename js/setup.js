@@ -81,7 +81,6 @@ var onPopupEscPress = function (evt) {
 };
 
 // --- описание функций
-
 setupOpen.addEventListener('click', function () {
   openSettings();
 });
@@ -96,7 +95,6 @@ setupClose.addEventListener('keydown', function (evt) {
 });
 
 // --- WIZARD CLOTHES
-
 var WIZARD_COAT = document.querySelector('.wizard-coat');
 var WIZARD_EYES = document.querySelector('.wizard-eyes');
 var BALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
@@ -125,5 +123,7 @@ NAME_FILL.addEventListener('keydown', function (evt) {
   evt.stopPropagation();
 });
 SUBBMIT.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE){evt.preventDefault()}
+  if (evt.keyCode === ENTER_KEYCODE){
+    this.submit();
+  }
 });
