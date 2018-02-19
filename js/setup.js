@@ -43,8 +43,7 @@
   similarListElement.appendChild(fragment);
   document.querySelector('.setup').querySelector('.setup-similar').classList.remove('hidden');
   // ---module4-task1
-  var ESC_KEYCODE = 27;
-  var ENTER_KEYCODE = 13;
+
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open-icon');
   var setupClose = document.querySelector('.setup-close');
@@ -60,22 +59,20 @@
   };
   // --- удаление обработчика
   var onPopupEscPress = function (evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      closeSettings();
-    }
+    window.usless.isEscEvent(evt, closeSettings);
   };
   // --- описание функций
   setupOpen.addEventListener('click', function () {
     openSettings();
   });
   setupOpen.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE){openSettings();}
+    if (evt.keyCode === ENTER_KEYCODE) {openSettings();}
   });
   setupClose.addEventListener('click', function () {
     closeSettings();
   });
   setupClose.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE){closeSettings();}
+    if (evt.keyCode === ENTER_KEYCODE) {closeSettings();}
   });
   // --- WIZARD CLOTHES
   var WIZARD_COAT = document.querySelector('.wizard-coat');
