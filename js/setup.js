@@ -66,13 +66,13 @@
     openSettings();
   });
   setupOpen.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {openSettings();}
+    window.usless.isEnterEvent(evt, openSettings);
   });
   setupClose.addEventListener('click', function () {
     closeSettings();
   });
   setupClose.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {closeSettings();}
+    window.usless.isEnterEvent(evt, closeSettings);
   });
   // --- WIZARD CLOTHES
   var WIZARD_COAT = document.querySelector('.wizard-coat');
@@ -98,10 +98,5 @@
   });
   NAME_FILL.addEventListener('keydown', function (evt) {
     evt.stopPropagation();
-  });
-  SUBBMIT.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE){
-      this.submit();
-    }
   });
 })();
