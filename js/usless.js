@@ -13,4 +13,5 @@
       }
     }
   };
+  window.SETUP = document.querySelector('.setup');
 })();

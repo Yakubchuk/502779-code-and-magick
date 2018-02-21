@@ -44,18 +44,19 @@
   document.querySelector('.setup').querySelector('.setup-similar').classList.remove('hidden');
   // ---module4-task1
 
-  var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open-icon');
   var setupClose = document.querySelector('.setup-close');
   // --- Открытие окна
   var openSettings = function () {
-    setup.classList.remove('hidden');
+    window.SETUP.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
   };
   // --- Закрытие окна
   var closeSettings = function () {
-    setup.classList.add('hidden');
+    window.SETUP.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
+    window.SETUP.style.top = '80px';
+    window.SETUP.style.left = '50%';
   };
   // --- удаление обработчика
   var onPopupEscPress = function (evt) {
@@ -98,5 +99,41 @@
   });
   NAME_FILL.addEventListener('keydown', function (evt) {
     evt.stopPropagation();
+  });
+
+  var dragZone = document.querySelector('.setup-artifacts');
+  var shopElement = document.querySelector('.setup-artifacts-shop');
+  var draggedItem = null;
+
+  shopElement.addEventListener('dragstart', function (evt) {
+    if (evt.target.tagName.toLowerCase() === 'img') {
+      draggedItem = evt.target;
+      evt.dataTransfer.setData('text/plain', evt.target.alt);
+      dragZone.style.outline = '2px dashed red';
+    }
+  });
+
+  var artifactsElement = document.querySelector('.setup-artifacts');
+
+  artifactsElement.addEventListener('dragover', function (evt) {
+    evt.preventDefault();
+    return false;
+  });
+  artifactsElement.addEventListener('drop', function (evt) {
+    evt.target.style.backgroundColor = '';
+    evt.target.appendChild(draggedItem);
+    dragZone.style.outline = '';
+    evt.preventDefault();
+  });
+
+
+  artifactsElement.addEventListener('dragenter', function (evt) {
+    evt.target.style.backgroundColor = 'yellow';
+    evt.preventDefault();
+  });
+
+  artifactsElement.addEventListener('dragleave', function (evt) {
+    evt.target.style.backgroundColor = '';
+    evt.preventDefault();
   });
 })();
